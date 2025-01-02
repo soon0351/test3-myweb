@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>윤석세무회계 - 최고의 세무회계 전문가 그룹</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --text: #334155;
+            --bg-blue: #1e3a8a;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2000');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: #e2e8f0;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .service-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .service-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-list li::before {
+            content: "•";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+        }
+
+        .card-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            color: var(--text);
+        }
+
+        .testimonials {
+            background: var(--light);
+        }
+
+        .testimonial-card {
+            text-align: left;
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #e2e8f0;
+        }
+
+        .contact {
+            background: var(--bg-blue);
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="#" class="logo">윤석세무회계</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>대한민국 최고의<br>세무회계 전문가 그룹</h1>
+            <p>믿을 수 있는 전문가들이 최적의 맞춤형 세무솔루션을 제공합니다</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">20+</div>
+                    <div>년 경력</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1,000+</div>
+                    <div>고객사</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div>고객 만족도</div>
+                </div>
+            </div>
+            
+            <a href="#contact" class="btn">상담 신청 →</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>전문 서비스</h2>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3>기업 세무</h3>
+                    <ul class="service-list">
+                        <li>법인세 신고 및 조정</li>
+                        <li>부가가치세 신고</li>
+                        <li>지방세 신고</li>
+                        <li>세무조사 대응</li>
+                        <li>기업 인수합병 세무 자문</li>
+                    </ul>
+                    <div class="card-stats">
+                        <div>500+ 기업 고객</div>
+                        <div>98% 성공률</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>개인사업자 세무</h3>
+                    <ul class="service-list">
+                        <li>종합소득세 신고</li>
+                        <li>부가가치세 신고</li>
+                        <li>사업자 판별 상담</li>
+                        <li>원천세 신고</li>
+                        <li>4대보험 관리</li>
+                    </ul>
+                    <div class="card-stats">
+                        <div>2,000+ 개인사업자</div>
+                        <div>15년+ 경력</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>자산관리 세무</h3>
+                    <ul class="service-list">
+                        <li>상속/증여 세무 계획</li>
+                        <li>부동산 세무 자문</li>
+                        <li>금융자산 세무 상담</li>
+                        <li>양도소득세 상담</li>
+                        <li>절세 전략 수립</li>
+                    </ul>
+                    <div class="card-stats">
+                        <div>300억+ 자산관리</div>
+                        <div>25% 절세율</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>고객 후기</h2>
+                <p>실제 고객님들의 생생한 후기를 확인하세요</p>
+            </div>
+            <div class="grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "스타트업 부서 유지 과정에서 세무 이슈가 발생했는데, 신속하고 전문적인 자문으로 큰 도움을 받았습니다."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div>
+                            <strong>김OO 대표</strong><br>
+                            IT 스타트업
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "복잡한 프랜차이즈 세무 문제를 해결해 주셔서 감사합니다. 체계적인 절차와 관리 서비스를 통해 많은 시간과 비용을 절약했습니다."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div>
+                            <strong>이OO 대표</strong><br>
+                            프랜차이즈 본사
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "매출 10억 규모의 온라인 쇼핑몰을 운영하면서 세무 문제로 고민이 많았는데, 2,000만원 이상의 절세 효과를 보았습니다."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div>
+                            <strong>박OO 대표</strong><br>
+                            온라인 쇼핑몰
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>지금 바로 전문가와 상담하세요</h2>
+                <p>첫 상담은 30분당 5만원 입니다</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>전화 상담</h3>
+                    <p>02-5678-1234</p>
+                    <a href="tel:02-5678-1234" class="btn">전화하기</a>
+                </div>
+                <div class="contact-item">
+                    <h3>이메일 상담</h3>
+                    <p>tax@yoonoffice.co.kr</p>
+                    <a href="mailto:tax@yoonoffice.co.kr" class="btn">이메일 보내기</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // 스크롤 이벤트 처리
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'white';
+            } else {
+                nav.style.background = 'transparent';
+            }
+        });
+    </script>
+</body>
+</html>
